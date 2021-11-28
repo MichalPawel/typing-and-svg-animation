@@ -7,11 +7,11 @@ const speed = 70 //time between new letters
 let activeDOMElement = box;
 
 const typing = (newTime) => {
+  if (textIndex >= text.length) {
+    return
+  }
   const letter = text[textIndex].substr(wordIndex, 1);
   if (newTime - oldTime > speed) {
-    if (textIndex >= text.length) {
-      return
-    }
     if (wordIndex >= text[textIndex].length) {
       return setTimeout(() => {
         box.textContent = '';
